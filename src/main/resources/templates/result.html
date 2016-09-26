@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+    <p th:text="'description: ' + ${incidentBean.description}" />
+    <p th:text="'street: ' + ${incidentBean.street}" />
+    <p th:text="'city: ' + ${incidentBean.city}" />
+    <p th:text="'state: ' + ${incidentBean.state}" />
+    <p th:text="'zip: ' + ${incidentBean.zip}" />
+    <p th:text="'firstName: ' + ${incidentBean.firstName}" />
+    <p th:text="'lastName: ' + ${incidentBean.lastName}" />
+    <p th:text="'phone: ' + ${incidentBean.phone}" />
+    <a href="/new">Submit another outage</a>
+</body>
+</html>

@@ -16,21 +16,21 @@ import devCamp.WebApp.IncidentAPIClient.Models.IncidentBean;
 
 @Controller
 public class IncidentController {
-
+	
     @GetMapping("/details")
-    public String Details( Model model) {
-    	//get the incident    	
+    public String Details( @RequestParam(value="Id", required=false, defaultValue="") String id,Model model) {
+    	//get the incident from the REST service   	
     	IncidentBean incident = IncidentBean.getDemoIncident();
     	//plug incident into the Model
         model.addAttribute("incident", incident);
-        return "incidentView";
+        return "Incident/details";
     }
 
 	
     @GetMapping("/new")
     public String newIncidentForm( Model model) {
         model.addAttribute("incident", new IncidentBean());
-        return "new";
+        return "Incident/new";
     }
 
     @PostMapping("/new")
@@ -43,7 +43,7 @@ public class IncidentController {
     	}
     	//now upload the file if there is one
     	    	
-        return "result";
+        return "Incident/details";
     }
     
 }

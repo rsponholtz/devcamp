@@ -6,14 +6,17 @@
 </head>
 <body>
 	<h1>Result</h1>
-    <p th:text="'description: ' + ${incidentBean.description}" />
-    <p th:text="'street: ' + ${incidentBean.street}" />
-    <p th:text="'city: ' + ${incidentBean.city}" />
-    <p th:text="'state: ' + ${incidentBean.state}" />
-    <p th:text="'zip: ' + ${incidentBean.zip}" />
-    <p th:text="'firstName: ' + ${incidentBean.firstName}" />
-    <p th:text="'lastName: ' + ${incidentBean.lastName}" />
-    <p th:text="'phone: ' + ${incidentBean.phone}" />
+    <p th:text="'description: ' + ${incidentBean.Description}" />
+    <p th:text="'street: ' + ${incidentBean.Street}" />
+    <p th:text="'city: ' + ${incidentBean.City}" />
+    <p th:text="'state: ' + ${incidentBean.State}" />
+    <p th:text="'zip: ' + ${incidentBean.ZipCode}" />
+    <p th:text="'firstName: ' + ${incidentBean.FirstName}" />
+    <p th:text="'lastName: ' + ${incidentBean.LastName}" />
+    <p th:text="'phone: ' + ${incidentBean.PhoneNumber}" />
+    <p th:text="'OutageType: ' + ${incidentBean.OutageType}" />
+    <p th:text="'IsEmergency: ' + ${incidentBean.IsEmergency}" />
+    <p th:text="'Resolved: ' + ${incidentBean.Resolved}" />
     <a href="/new">Submit another outage</a>
 </body>
 </html>

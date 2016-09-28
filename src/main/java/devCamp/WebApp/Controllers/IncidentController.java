@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import devCamp.WebApp.IncidentAPIClient.IncidentAPIClient;
 import devCamp.WebApp.IncidentAPIClient.Models.IncidentBean;
+import devCamp.WebApp.Utils.IncidentApiHelper;
 
 @Controller
 public class IncidentController {
@@ -29,20 +30,19 @@ public class IncidentController {
 	
     @GetMapping("/new")
     public String newIncidentForm( Model model) {
-        model.addAttribute("incident", new IncidentBean());
+    	model.addAttribute("incident", new IncidentBean());
         return "Incident/new";
     }
 
     @PostMapping("/new")
     public String Create(@ModelAttribute IncidentBean incident) {
-    	IncidentAPIClient client = new IncidentAPIClient();
-    	IncidentBean incidentToSave;
-    	String result = client.CreateIncident(incident);
-    	if (!result.isEmpty()){
+    	IncidentAPIClient client = IncidentApiHelper.getIncidentAPIClient();
+    	IncidentBean result = client.CreateIncident(incident);
+    	if (result != null){
     		//incidentToSave = deserialize the result string
     	}
-    	//now upload the file if there is one
-    	    	
+    	
+    	//now upload the file if there is one    	    	
         return "Incident/details";
     }
     

@@ -18,7 +18,7 @@
 
 <script type="text/javascript">
 function fillForm() {
-    document.getElementById('description').value = "theDescription";
+    document.getElementById('description').value = "There is a pothole in the street.";
     document.getElementById('addressStreet').value = "1600 Pennsylvania Ave NW";
     document.getElementById('addressCity').value = "Washington	";
     document.getElementById('addressState').value = "DC";
@@ -69,10 +69,10 @@ function fillForm() {
 
     <!-- Body -->
     <div class="container">
-
+		<button class="btn" onclick="fillForm()">Fill Form</button>
         <h1>Report an Outage</h1>
 
-        <p><a onclick="fillForm()" href="#">Welcome</a> to the CP&amp;L outage reporting tool. From here you can view all reported outages via the dashboard screen, or report a new outage. Our technicians will address outages as soon as possible.</p>
+        <p>Welcome to the CP&amp;L outage reporting tool. From here you can view all reported outages via the dashboard screen, or report a new outage. Our technicians will address outages as soon as possible.</p>
 
         <div class="row">
 

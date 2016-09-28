@@ -2,41 +2,89 @@ package devCamp.WebApp.IncidentAPIClient.Models;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-//import org.springframework.samples.mvc.convert.MaskFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+//import org.springframework.samples.mvc.convert.MaskFormat;
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class IncidentBean {
 	private String id;
+
+	@JsonProperty("Description")
 	private String Description;
+
+	@JsonProperty("Street")
 	private String Street;
+
+	@JsonProperty("City")
 	private String City;
+
+	@JsonProperty("State")
 	private String State;
+
+	@JsonProperty("ZipCode")
 	private String ZipCode;
-	
+
 	@NotEmpty
+	@JsonProperty("FirstName")
 	private String FirstName;
-	
+
 	@NotEmpty
+	@JsonProperty("LastName")
 	private String LastName;
 
 //	@MaskFormat("(###) ###-####")
+	@JsonProperty("PhoneNumber")
 	private String PhoneNumber;
 
+	@JsonProperty("OutageType")
 	private String OutageType;
 
+	@JsonProperty("IsEmergency")
 	private boolean IsEmergency;
+
+	@JsonProperty("Resolved")
 	private boolean Resolved;
+
+	@JsonProperty("ImageUri")
 	private String ImageUri;
+
+	@JsonProperty("ThumbnailUri")
 	private String ThumbnailUri;
+
+	@JsonProperty("Created")
 	private String Created;
+
+	@JsonProperty("LastModified")
 	private String LastModified;
+
+	@JsonProperty("SortKey")
 	private String SortKey;
-    
+
 
 
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("properties name=");
-		return sb.toString();        
+        StringBuilder sb = new StringBuilder();
+        sb.append("properties ");
+        sb.append("id=").append(id).append(", ");
+        sb.append("description=").append(Description).append(", ");
+        sb.append("Street=").append(Street).append(", ");
+        sb.append("City=").append(City).append(", ");
+        sb.append("State=").append(State).append(", ");
+        sb.append("ZipCode=").append(ZipCode).append(", ");
+        sb.append("FirstName=").append(FirstName).append(", ");
+        sb.append("LastName=").append(LastName).append(", ");
+        sb.append("PhoneNumber=").append(PhoneNumber).append(", ");
+        sb.append("OutageType=").append(OutageType).append(", ");
+        sb.append("IsEmergency=").append(IsEmergency).append(", ");
+        sb.append("Resolved=").append(Resolved).append(", ");
+        sb.append("ImageUri=").append(ImageUri).append(", ");
+        sb.append("ThumbnailUri=").append(ThumbnailUri).append(", ");
+        sb.append("Created=").append(Created).append(", ");
+        sb.append("LastModified=").append(LastModified).append(", ");
+        sb.append("SortKey=").append(SortKey).append(", ");
+
+		return sb.toString();
 	}
 
 
@@ -247,7 +295,7 @@ public class IncidentBean {
 
 	static public IncidentBean getDemoIncident() {
     	IncidentBean incident = new IncidentBean();
-    	
+
     	incident.setDescription("description");
     	incident.setStreet("the Street");
     	incident.setCity("the City");
@@ -261,36 +309,4 @@ public class IncidentBean {
     	incident.setResolved(true);
     	return incident;
 	}
-/*
-
-	public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("properties name=");
-        if (name != null) {
-        	sb.append("'").append(name).append("', ");
-        } else {
-        	sb.append(name).append(", ");
-        }
-        sb.append("age=").append(age).append(", ");
-        sb.append("birthDate=").append(birthDate).append(", ");
-        sb.append("phone=");
-        if (phone != null) {
-        	sb.append("'").append(phone).append("', ");
-        } else {
-        	sb.append(phone).append(", ");
-        }
-        sb.append("currency=").append(currency).append(", ");
-        sb.append("percent=").append(percent).append(", ");
-        sb.append("inquiry=").append(inquiry).append(", ");
-        sb.append("inquiryDetails=");
-        if (inquiryDetails != null) {
-        	sb.append("'").append(inquiryDetails).append("', ");
-        } else {
-        	sb.append(inquiryDetails).append(", ");
-        }
-        sb.append("subscribeNewsletter=").append(subscribeNewsletter).append(", ");
-        sb.append("additionalInfo=").append(additionalInfo);
-        return sb.toString();
-    }
-    */
 }

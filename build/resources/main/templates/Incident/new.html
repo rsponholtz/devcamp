@@ -16,6 +16,19 @@
 
 </head>
 
+<script type="text/javascript">
+function fillForm() {
+    document.getElementById('description').value = "There is a pothole in the street.";
+    document.getElementById('addressStreet').value = "1600 Pennsylvania Ave NW";
+    document.getElementById('addressCity').value = "Washington	";
+    document.getElementById('addressState').value = "DC";
+    document.getElementById('addressZip').value = "20500";
+    document.getElementById('firstName').value = "Jane";
+    document.getElementById('lastName').value = "Doe";
+    document.getElementById('phone').value = "+1 (555)555-1212";
+    document.getElementById('isEmergency').value = false;}
+</script>
+
 <body>
 
     <!-- Top Navigation -->
@@ -56,7 +69,7 @@
 
     <!-- Body -->
     <div class="container">
-
+		<button class="btn" onclick="fillForm()">Fill Form</button>
         <h1>Report an Outage</h1>
 
         <p>Welcome to the CP&amp;L outage reporting tool. From here you can view all reported outages via the dashboard screen, or report a new outage. Our technicians will address outages as soon as possible.</p>
@@ -70,17 +83,17 @@
 
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea class="form-control" th:field="*{description}" rows="3" id="description"></textarea>
+                        <textarea class="form-control" th:field="*{Description}" rows="3" id="description"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="addressStreet">Street</label>
-                        <input type="text" class="form-control" th:field="*{street}" id="addressStreet" placeholder="255 W. Elm Street"/>
+                        <input type="text" class="form-control" th:field="*{Street}" id="addressStreet" placeholder="255 W. Elm Street"/>
                     </div>
 
                     <div class="form-group">
                         <label for="addressCity">City</label>
-                        <input type="text" class="form-control" th:field="*{city}" id="addressCity" placeholder="Springfield"/>
+                        <input type="text" class="form-control" th:field="*{City}" id="addressCity" placeholder="Springfield"/>
                     </div>
 
                     <div class="row">
@@ -88,14 +101,14 @@
                         <div class="col-xs-6">
                             <div class="form-group">
                                 <label for="addressState">State</label>
-                                <input type="text" class="form-control" th:field="*{state}" id="addressState" placeholder="TX"/>
+                                <input type="text" class="form-control" th:field="*{State}" id="addressState" placeholder="TX"/>
                             </div>
                         </div>
 
                         <div class="col-xs-6">
                             <div class="form-group">
                                 <label for="addressZip">Zip</label>
-                                <input type="number" class="form-control" th:field="*{zip}" id="addressZip" placeholder="90210"/>
+                                <input type="number" class="form-control" th:field="*{ZipCode}" id="addressZip" placeholder="90210"/>
                             </div>
                         </div>
 
@@ -103,22 +116,22 @@
 
                     <div class="form-group">
                         <label for="firstName">First Name</label>
-                        <input type="text" class="form-control" th:field="*{firstName}" id="firstName" placeholder="Jane"/>
+                        <input type="text" class="form-control" th:field="*{FirstName}" id="firstName" placeholder="Jane"/>
                     </div>
 
                     <div class="form-group">
                         <label for="lastName">Last Name</label>
-                        <input type="text" class="form-control" th:field="*{lastName}" id="lastName" placeholder="Doe"/>
+                        <input type="text" class="form-control" th:field="*{LastName}" id="lastName" placeholder="Doe"/>
                     </div>
 
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" class="form-control" th:field="*{phone}" id="phone" placeholder="+1 (417) 444-4444"/>
+                        <input type="tel" class="form-control" th:field="*{PhoneNumber}" id="phone" placeholder="+1 (417) 444-4444"/>
                     </div>
 
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" th:field="*{emergency}"> Emergency </input>
+                            <input type="checkbox" th:field="*{IsEmergency}" id="isEmergency"> Emergency </input>
                         </label>
                     </div>
 

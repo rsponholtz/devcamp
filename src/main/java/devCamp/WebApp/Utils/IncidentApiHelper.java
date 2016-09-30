@@ -8,19 +8,14 @@ import org.springframework.stereotype.Component;
 
 import devCamp.WebApp.IncidentAPIClient.IncidentAPIClient;
 
-@Component
 public class IncidentApiHelper {
 	public static IncidentAPIClient getIncidentAPIClient() {
 		
 		String apiurl= System.getenv("INCIDENT_API_URL");
 		IncidentAPIClient client = null;
 		
-		try {
-			client = new IncidentAPIClient(new URI(String.format("https://%s",apiurl)),"");
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String uri = String.format("https://%s",apiurl);
+		client = new IncidentAPIClient(uri,"");
 		return client;
 	}
 }

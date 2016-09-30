@@ -3,23 +3,28 @@ package devCamp.WebApp.IncidentAPIClient;
 import java.net.URI;
 import java.util.List;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import javax.cache.annotation.CacheRemove;
+import javax.cache.annotation.CacheResult;
 import devCamp.WebApp.IncidentAPIClient.Models.IncidentBean;
 
 public class IncidentAPIClient {
 	
-	private URI baseURI;
+	private String baseURI;
 	
-	public URI getBaseURI() {
+	public String getBaseURI() {
 		return baseURI;
 	}
 
-	public void setBaseURI(URI baseURI) {
+	public void setBaseURI(String baseURI) {
 		this.baseURI = baseURI;
 	}
 
@@ -33,6 +38,7 @@ public class IncidentAPIClient {
 		this.credentials = credentials;
 	}
 
+	@CacheRemove(cacheName="incidents")
 	public IncidentBean CreateIncident(IncidentBean incident) {
 		//call REST API to create the incident
         final String uri = baseURI+"/incidents";
@@ -54,7 +60,7 @@ public class IncidentAPIClient {
         return retval;
 	}
  
-	
+	@CacheResult(cacheName="incidents")
 	public List<IncidentBean> GetAllIncidents() {
 		final String uri = baseURI+"/incidents";
         RestTemplate restTemplate = new RestTemplate();
@@ -81,6 +87,7 @@ public class IncidentAPIClient {
         return retval;		
 	}
  
+	@CacheRemove(cacheName="incidents")
 	public IncidentBean UpdateIncident(String incidentId,IncidentBean newIncident){
 		//call REST API to create the incident
         final String uri = baseURI+"/incidents";
@@ -103,7 +110,7 @@ public class IncidentAPIClient {
         return retval;		
 	}
 	
-	public IncidentAPIClient(URI baseURI, String credentials) {
+	public IncidentAPIClient(String baseURI, String credentials) {
 		if (baseURI == null){
 			//throw argument null exception
 		}

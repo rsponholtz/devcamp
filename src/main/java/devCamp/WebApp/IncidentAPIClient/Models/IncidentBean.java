@@ -1,5 +1,7 @@
 package devCamp.WebApp.IncidentAPIClient.Models;
 
+import java.io.Serializable;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -7,7 +9,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 //import org.springframework.samples.mvc.convert.MaskFormat;
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class IncidentBean {
+public class IncidentBean implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8934737151319658838L;
+
 	private String id;
 
 	@JsonProperty("Description")

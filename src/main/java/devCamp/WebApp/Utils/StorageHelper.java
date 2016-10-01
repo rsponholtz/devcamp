@@ -1,6 +1,10 @@
 package devCamp.WebApp.Utils;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.multipart.MultipartFile;
 
 public class StorageHelper {
 
@@ -28,8 +32,18 @@ public class StorageHelper {
 		return null;
 	}
 	
-	public static String UploadFileToBlobStorage(String IncidentID, String imageFile){
+	public static String UploadFileToBlobStorage(String IncidentID, MultipartFile imageFile){
+		
+//        CloudBlobClient blobClient;
+//        CloudBlobContainer container1 = null;
+//        CloudBlobContainer container2 = null;
 
+        
+//        byte[] bytes = imageFile.getBytes();
+//        BufferedOutputStream buffStream = 
+//                new BufferedOutputStream(new FileOutputStream(new java.io.File("/Users/rosssponholtz/workspace2/temp/" + fileName)));
+//        buffStream.write(bytes);
+//        buffStream.close();
 		
 		return null;
 		

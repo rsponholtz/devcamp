@@ -2,26 +2,28 @@ package devCamp.WebApp.Controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import devCamp.WebApp.IncidentAPIClient.IncidentAPIClient;
+import devCamp.WebApp.IncidentAPIClient.IncidentService;
 import devCamp.WebApp.IncidentAPIClient.Models.IncidentBean;
-import devCamp.WebApp.Utils.IncidentApiHelper;
 
 @Controller
 public class DashboardController {
-
+	@Autowired
+	IncidentService service;
+		
 	@RequestMapping("/dashboard")
 	public String dashboard(Model model) {
-
+		
 		//Add caching code here
 		//check cache for incident data
 		//if stale refresh
-		IncidentAPIClient client =  IncidentApiHelper.getIncidentAPIClient();
-		List<IncidentBean> allIncidents = client.GetAllIncidents();
-		model.addAttribute("allIncidents", allIncidents);
+		
+		List<IncidentBean> theList = service.GetAllIncidents();
+		model.addAttribute("allIncidents", theList);
 		//display the data on the dashboard screen
 		return "Dashboard/index";
 	}

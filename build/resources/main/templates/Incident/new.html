@@ -76,7 +76,7 @@ function fillForm() {
 
         <div class="row">
 
-            <form action="#" th:action="@{/new}" th:object="${incident}"  method="post">
+            <form action="#" th:action="@{/new}" th:object="${incident}"  method="post" enctype="multipart/form-data">
 
                 <!-- Left Column -->
                 <div class="col-sm-6">
@@ -145,7 +145,7 @@ function fillForm() {
 
                     <div class="form-group well well-lg">
                         <label for="image">Image of the Outage</label>
-                        <input type="file" class="form-control" id="image"/>
+                        <input type="file" class="form-control" id="image" name="file"/>
                     </div>
 
                 </div>

@@ -41,6 +41,7 @@ dependencies {
 	compile("javax.cache:cache-api")
   	compile('org.springframework.data:spring-data-redis')
 	compile('redis.clients:jedis')
+	compile('com.microsoft.azure:azure-storage:4.4.0')
 	compile('com.microsoft.azure:azure-svc-mgmt-storage:0.9.5')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 	testCompile('org.springframework.boot:spring-boot-starter-test')

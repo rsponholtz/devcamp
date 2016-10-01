@@ -35,4 +35,9 @@ public class IncidentService {
 	public IncidentBean GetById(String incidentId) {
 		return IncidentApiHelper.getIncidentAPIClient().GetById(incidentId);		
 	}
+
+	@CacheEvict(cacheNames="incidents", allEntries=true)
+	public void ClearCache() {
+	}
+
 }

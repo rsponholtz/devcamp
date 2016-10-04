@@ -1,10 +1,3 @@
-/*
-  compile("javax.cache:cache-api")
-  compile('org.springframework.data:spring-data-redis')
-  compile('redis.clients:jedis');
- */
-
-
 package devCamp.WebApp;
 
 import java.util.Arrays;
@@ -57,8 +50,6 @@ public class CacheConfig extends CachingConfigurerSupport {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-
     		return ob;
     	}
 

@@ -16,12 +16,7 @@ public class DashboardController {
 	IncidentService service;
 		
 	@RequestMapping("/dashboard")
-	public String dashboard(Model model) {
-		
-		//Add caching code here
-		//check cache for incident data
-		//if stale refresh
-		
+	public String dashboard(Model model) {	
 		List<IncidentBean> theList = service.GetAllIncidents();
 		model.addAttribute("allIncidents", theList);
 		//display the data on the dashboard screen

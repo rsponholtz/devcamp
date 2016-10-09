@@ -51,7 +51,7 @@ public class IncidentController {
 	}
 
 	@PostMapping("/new")
-	public String Create(@ModelAttribute IncidentBean incident,@RequestParam("file") MultipartFile imageFile) {
+	public String Create(@ModelAttribute IncidentBean incident,@RequestParam("file" ) MultipartFile imageFile) {
 		log.info("creating incident");
 		IncidentBean result = service.CreateIncident(incident);
 		if (result != null){
@@ -74,6 +74,7 @@ public class IncidentController {
 			}    	
 			service.ClearCache();
 			return "Incident/details";
+
 		} else {
 			return "/error";
 		}
